@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using Machine.Specifications;
+﻿using Machine.Specifications;
 using NumberConverter.Models.Printers;
 
-namespace Namespace
+namespace NumberConverter.Specs.Unit.Printers
 {
     [Subject(typeof(SingleDigitPrinter))]
     public class given_a_number_less_than_twenty_when_converting

@@ -1,7 +1,7 @@
 ﻿using Machine.Specifications;
 using NumberConverter.Models.Printers;
 
-namespace Namespace
+namespace NumberConverter.Specs.Unit.Printers
 {
     [Subject(typeof(SingleDigitPrinter))]
     public class given_a_single_digit_when_printing

@@ -2,7 +2,7 @@
 using NumberConverter.Models;
 using NumberConverter.Models.Printers;
 
-namespace Namespace
+namespace NumberConverter.Specs.Unit
 {
     [Subject(typeof(Number))]
     public class given_the_number_1_when_converting_to_text
