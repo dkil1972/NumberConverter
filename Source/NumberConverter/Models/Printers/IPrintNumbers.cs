@@ -2,6 +2,6 @@
 {
     public interface IPrintNumbers
     {
-        string Print(int value);
+        string Print(Number value);
     }
 }

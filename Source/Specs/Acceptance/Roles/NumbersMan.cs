@@ -16,7 +16,7 @@ namespace Tests.Roles
 
         public string Convert()
         {
-            return new Number(new SingleDigitPrinter()).Convert(_value);
+            return string.Empty;
         }
          
     }

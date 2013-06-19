@@ -1,4 +1,5 @@
 ﻿using Machine.Specifications;
+using NumberConverter.Models;
 using NumberConverter.Models.Printers;
 
 namespace NumberConverter.Specs.Unit.Printers
@@ -15,8 +16,8 @@ namespace NumberConverter.Specs.Unit.Printers
 
         Because of = () => { };
 
-        It the_text_one_hundred_is_returned = () => printer.Print(100).ShouldEqual("one hundred");
-        It the_text_two_hundred_is_returned = () => printer.Print(200).ShouldEqual("two hundred");
+        It the_text_one_hundred_is_returned = () => printer.Print(new Number(100)).ShouldEqual("one hundred");
+        It the_text_two_hundred_is_returned = () => printer.Print(new Number(200)).ShouldEqual("two hundred");
 
         private static HundredsPrinter printer;
     }
@@ -33,8 +34,8 @@ namespace NumberConverter.Specs.Unit.Printers
 
         Because of = () => { };
 
-        It the_text_one_hundred_and_one_is_returned = () => printer.Print(101).ShouldEqual("one hundred and one");
-        It the_text_two_hundred_and_twenty_five_is_returned = () => printer.Print(225).ShouldEqual("two hundred and twenty five");
+        It the_text_one_hundred_and_one_is_returned = () => printer.Print(new Number(101)).ShouldEqual("one hundred and one");
+        It the_text_two_hundred_and_twenty_five_is_returned = () => printer.Print(new Number(225)).ShouldEqual("two hundred and twenty five");
 
         private static HundredsPrinter printer;
     }

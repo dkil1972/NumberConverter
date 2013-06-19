@@ -19,16 +19,16 @@ namespace NumberConverter.Models.Printers
                 {19, "nineteen"},
             };
 
-        private readonly IDictionary<char, string> tensToTextMap = new Dictionary<char, string>
+        private readonly IDictionary<int, string> tensToTextMap = new Dictionary<int, string>
             {
-                {'2', "twenty"},
-                {'3', "thirty"},
-                {'4', "forty"},
-                {'5', "fifty"},
-                {'6', "sixty"},
-                {'7', "seventy"},
-                {'8', "eighty"},
-                {'9', "ninety"},
+                {2, "twenty"},
+                {3, "thirty"},
+                {4, "forty"},
+                {5, "fifty"},
+                {6, "sixty"},
+                {7, "seventy"},
+                {8, "eighty"},
+                {9, "ninety"},
             };
 
         private readonly IList<IPrintNumbers> childPrinters = new List<IPrintNumbers>();
@@ -43,14 +43,13 @@ namespace NumberConverter.Models.Printers
             childPrinters.Add(childPrinter);
         }
 
-        public string Print(int value)
+        public string Print(Number value)
         {
-            if (value < 20)
-                return teenToTextMap[value];
+            if (value.BetweenTenAndTwenty())
+                return teenToTextMap[value.UnderlyingValue];
 
-            var firstDigit = value.ToString()[0];
-
-            return tensToTextMap[firstDigit] + " " + childPrinters.Single().Print(int.Parse(value.ToString()[1].ToString()));
+            return tensToTextMap[value.FirstDigit().UnderlyingValue] + " " +
+                   childPrinters.Single().Print(value.LastDigit());
         }
 
         public void Add(IPrintNumbers childPrinter)

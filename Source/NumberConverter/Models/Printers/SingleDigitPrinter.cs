@@ -16,9 +16,9 @@ namespace NumberConverter.Models.Printers
                                                                    {8, "eight"},
                                                                    {9, "nine"},
                                                                };
-        public string Print(int value)
+        public string Print(Number value)
         {
-            return this.numberToTextMap[value];
+            return this.numberToTextMap[value.UnderlyingValue];
         }
     }
 }

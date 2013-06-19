@@ -7,21 +7,17 @@ namespace NumberConverter.Models.Printers
     {
         private readonly IList<IPrintNumbers> childPrinters = new List<IPrintNumbers>();
 
-        public string Print(int value)
+        public string Print(Number value)
         {
-            var firstDigit = value.ToString()[0];
-            var secondDigit = int.Parse(value.ToString()[1].ToString());
-            var thirdDigit = int.Parse(value.ToString()[2].ToString());
+            if(value.IsExactMultipleOf(100))
+                return childPrinters.First().Print(value.FirstDigit()) + " hundred";
 
-            if(secondDigit == 0 && thirdDigit == 0)
-                return childPrinters.First().Print(int.Parse(firstDigit.ToString())) + " hundred";
+            if (value.Digit(2).IsZero())
+                return childPrinters.First().Print(value.FirstDigit()) + " hundred and " +
+                       childPrinters.First().Print(value.LastDigit());
 
-            if (secondDigit == 0)
-                return childPrinters.First().Print(int.Parse(firstDigit.ToString())) + " hundred and " +
-                       childPrinters.First().Print(thirdDigit);
-
-            return childPrinters.First().Print(int.Parse(firstDigit.ToString())) + " hundred and " +
-                   childPrinters.Last().Print(int.Parse(secondDigit.ToString() + thirdDigit.ToString()));
+            return childPrinters.First().Print(value.FirstDigit()) + " hundred and " +
+                   childPrinters.Last().Print(value.LastDigitsStartingAt(2));
         }
 
         public void Add(IPrintNumbers childPrinter)
