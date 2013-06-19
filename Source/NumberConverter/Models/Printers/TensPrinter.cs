@@ -33,6 +33,16 @@ namespace NumberConverter.Models.Printers
 
         private readonly IList<IPrintNumbers> childPrinters = new List<IPrintNumbers>();
 
+        public TensPrinter()
+        {
+            
+        }
+
+        public TensPrinter(IPrintNumbers childPrinter)
+        {
+            childPrinters.Add(childPrinter);
+        }
+
         public string Print(int value)
         {
             if (value < 20)

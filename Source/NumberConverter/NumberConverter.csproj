@@ -124,6 +124,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Number.cs" />
+    <Compile Include="Models\Printers\HundredsPrinter.cs" />
     <Compile Include="Models\Printers\IPrintNumbers.cs" />
     <Compile Include="Models\Printers\SingleDigitPrinter.cs" />
     <Compile Include="Models\Printers\TensPrinter.cs" />
