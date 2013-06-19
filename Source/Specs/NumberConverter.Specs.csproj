@@ -66,6 +66,7 @@
     <Compile Include="Acceptance\Tasks\Convert.cs" />
     <Compile Include="Acceptance\Tasks\SeeTheAnswer.cs" />
     <Compile Include="Unit\NumberSpecs.cs" />
+    <Compile Include="Unit\Printers\TensPrinterSpecs.cs" />
     <Compile Include="Unit\Printers\SingleDigitPrinterSpecs.cs" />
   </ItemGroup>
   <ItemGroup>

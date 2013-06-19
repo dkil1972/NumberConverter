@@ -126,6 +126,7 @@
     <Compile Include="Models\Number.cs" />
     <Compile Include="Models\Printers\IPrintNumbers.cs" />
     <Compile Include="Models\Printers\SingleDigitPrinter.cs" />
+    <Compile Include="Models\Printers\TensPrinter.cs" />
     <Compile Include="Models\Specifications\ISpecifyNumberValue.cs" />
     <Compile Include="Models\Specifications\SingleDigitSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
