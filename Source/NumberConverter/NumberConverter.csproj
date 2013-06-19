@@ -123,6 +123,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Number.cs" />
+    <Compile Include="Models\Printers\IPrintNumbers.cs" />
+    <Compile Include="Models\Printers\SingleDigitPrinter.cs" />
+    <Compile Include="Models\Specifications\ISpecifyNumberValue.cs" />
+    <Compile Include="Models\Specifications\SingleDigitSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,7 +218,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

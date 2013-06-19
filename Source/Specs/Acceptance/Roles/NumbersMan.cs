@@ -1,4 +1,7 @@
-﻿using SpecSalad;
+﻿using NumberConverter.Models;
+using NumberConverter.Models.Printers;
+using NumberConverter.Models.Specifications;
+using SpecSalad;
 
 namespace Tests.Roles
 {
@@ -13,16 +16,8 @@ namespace Tests.Roles
 
         public string Convert()
         {
-            return new Number().Convert(_value);
+            return new Number(new SingleDigitPrinter()).Convert(_value);
         }
          
-    }
-
-    public class Number
-    {
-        public string Convert(int value)
-        {
-            return "forty two";
-        }
     }
 }
