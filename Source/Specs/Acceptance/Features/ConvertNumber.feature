@@ -10,4 +10,5 @@ Scenario Outline: converting a valid number
 
 Examples: 
 | integer | result                                                                            |
+| 1 | one |
 | 2887983 | two million eight hundred and eighty seven thousand nine hundred and eighty three |
