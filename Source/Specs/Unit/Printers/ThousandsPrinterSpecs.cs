@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Machine.Specifications;
+﻿using Machine.Specifications;
 using NumberConverter.Models;
 using NumberConverter.Models.Printers;
 
@@ -46,35 +44,5 @@ namespace NumberConverter.Specs.Unit.Printers
         It the_text_two_thousand_and_one_is_returned = () => printer.Print(new Number(2001)).ShouldEqual("two thousand and one");
 
         private static ThousandsPrinter printer;
-    }
-
-    internal class ThousandsPrinter : IPrintNumbers
-    {
-        IList<IPrintNumbers> childPrinters = new List<IPrintNumbers>();
-
-        public string Print(Number value)
-        {
-            if (value.IsExactMultipleOf(1000))
-                return childPrinters.First().Print(value.FirstDigit()) + " thousand";
-
-            if (value.Digit(2).IsZero())
-            {
-                if (value.Digit(3).IsZero())
-                {
-                    return childPrinters.First().Print(value.FirstDigit()) + " thousand and " +
-                           childPrinters.First().Print(value.LastDigit());
-                }
-                return childPrinters.First().Print(value.FirstDigit()) + " thousand and " +
-                       childPrinters[1].Print(value.LastDigitsStartingAt(2));
-            }
-
-            return childPrinters.First().Print(value.FirstDigit()) + " thousand " + 
-                   childPrinters.Last().Print(value.LastDigitsStartingAt(3));
-        }
-
-        public void Add(IPrintNumbers childPrinter)
-        {
-            childPrinters.Add(childPrinter);
-        }
     }
 }
