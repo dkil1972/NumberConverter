@@ -1,6 +1,5 @@
-﻿using NumberConverter.Models;
-using NumberConverter.Models.Printers;
-using NumberConverter.Models.Specifications;
+﻿using System.Web.Mvc;
+using NumberConverter.Controllers;
 using SpecSalad;
 
 namespace Tests.Roles
@@ -16,7 +15,9 @@ namespace Tests.Roles
 
         public string Convert()
         {
-            return string.Empty;
+            var numberConversion = new NumberConversionController();
+            var actionResult = numberConversion.Convert(_value);
+            return ((ViewResult) actionResult).ViewData["ConvertedValue"].ToString();
         }
          
     }

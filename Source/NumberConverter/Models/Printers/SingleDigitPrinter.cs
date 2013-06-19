@@ -18,6 +18,9 @@ namespace NumberConverter.Models.Printers
                                                                };
         public string Print(Number value)
         {
+            if (value.IsZero())
+                return string.Empty;
+
             return this.numberToTextMap[value.UnderlyingValue];
         }
     }

@@ -19,4 +19,19 @@ namespace NumberConverter.Specs.Unit.Printers
 
         private static SingleDigitPrinter printer;
     }
+    
+    [Subject(typeof(SingleDigitPrinter))]
+    public class given_zero_value_when_printing
+    {
+        Establish context = () =>
+                                {
+                                    printer = new SingleDigitPrinter();
+                                };
+
+        Because of = () => { };
+
+        It an_empty_string_is_returned = () => printer.Print(new Number(0)).ShouldEqual("");
+
+        private static SingleDigitPrinter printer;
+    }
 }

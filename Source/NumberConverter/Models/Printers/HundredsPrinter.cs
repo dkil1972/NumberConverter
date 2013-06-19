@@ -7,6 +7,15 @@ namespace NumberConverter.Models.Printers
     {
         private readonly IList<IPrintNumbers> childPrinters = new List<IPrintNumbers>();
 
+        public HundredsPrinter(IPrintNumbers childPrinter)
+        {
+            childPrinters.Add(childPrinter);
+        }
+
+        public HundredsPrinter()
+        {
+        }
+
         public string Print(Number value)
         {
             if(value.IsExactMultipleOf(100))

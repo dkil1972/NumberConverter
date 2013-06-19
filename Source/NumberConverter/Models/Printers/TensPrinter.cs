@@ -48,6 +48,9 @@ namespace NumberConverter.Models.Printers
             if (value.BetweenTenAndTwenty())
                 return teenToTextMap[value.UnderlyingValue];
 
+            if (value.LastDigit().IsZero())
+                return tensToTextMap[value.FirstDigit().UnderlyingValue]; 
+            
             return tensToTextMap[value.FirstDigit().UnderlyingValue] + " " +
                    childPrinters.Single().Print(value.LastDigit());
         }
