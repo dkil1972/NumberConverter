@@ -9,6 +9,9 @@ Scenario Outline: converting a valid number
 	Then I should see the answer '<result>' 
 
 Examples: 
-| integer | result                                                                            |
-| 1 | one |
-| 2887983 | two million eight hundred and eighty seven thousand nine hundred and eighty three |
+| integer  | result                                                                              |
+| 1        | one                                                                                 |
+| 21       | twenty one                                                                          |
+| 105      | one hundred and five                                                                |
+| 56945781 | fifty six million nine hundred and forty five thousand seven hundred and eighty one |
+| 2887983  | two million eight hundred and eighty seven thousand nine hundred and eighty three   |

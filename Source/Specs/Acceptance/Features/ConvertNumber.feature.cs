@@ -68,6 +68,10 @@ namespace NumberConverter.Specs.Acceptance.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("converting a valid number")]
         [NUnit.Framework.TestCaseAttribute("1", "one", null)]
+        [NUnit.Framework.TestCaseAttribute("21", "twenty one", null)]
+        [NUnit.Framework.TestCaseAttribute("105", "one hundred and five", null)]
+        [NUnit.Framework.TestCaseAttribute("56945781", "fifty six million nine hundred and forty five thousand seven hundred and eighty o" +
+            "ne", null)]
         [NUnit.Framework.TestCaseAttribute("2887983", "two million eight hundred and eighty seven thousand nine hundred and eighty three" +
             "", null)]
         public virtual void ConvertingAValidNumber(string integer, string result, string[] exampleTags)
