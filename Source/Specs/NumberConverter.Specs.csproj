@@ -74,6 +74,7 @@
     <Compile Include="Unit\Printers\HundredsPrinterSpecs.cs" />
     <Compile Include="Unit\Printers\TensPrinterSpecs.cs" />
     <Compile Include="Unit\Printers\SingleDigitPrinterSpecs.cs" />
+    <Compile Include="Unit\TestFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

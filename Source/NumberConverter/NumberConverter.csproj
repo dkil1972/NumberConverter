@@ -131,6 +131,7 @@
     <Compile Include="Models\NumberStrategy\Thousands.cs" />
     <Compile Include="Models\Printers\HundredsPrinter.cs" />
     <Compile Include="Models\Printers\IPrintNumbers.cs" />
+    <Compile Include="Models\Printers\MillionsPrinter.cs" />
     <Compile Include="Models\Printers\SingleDigitPrinter.cs" />
     <Compile Include="Models\Printers\TensPrinter.cs" />
     <Compile Include="Models\Printers\ThousandsPrinter.cs" />

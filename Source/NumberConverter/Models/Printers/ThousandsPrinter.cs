@@ -21,9 +21,9 @@ namespace NumberConverter.Models.Printers
             var toReturn = childPrinters[thousandsDetail.GetSize()].Print(thousandsDetail.NumberOfMultiples()) + " thousand";
 
             if (value.ContainsHundreds())
-                toReturn += " " + childPrinters[NumberSize.Hundreds].Print(value.LastDigitsFrom(3));
+                toReturn += " " + childPrinters[NumberSize.Hundreds].Print(value.ExtractHundreds());
             else if (value.ContainsTens())
-                toReturn += " and " + childPrinters[NumberSize.Tens].Print(value.LastDigitsFrom(2));
+                toReturn += " and " + childPrinters[NumberSize.Tens].Print(value.LastDigitsFrom(3));
             else
                 toReturn += " and " + childPrinters[NumberSize.Ones].Print(value.LastDigit());
 

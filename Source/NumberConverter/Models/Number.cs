@@ -17,6 +17,16 @@ namespace NumberConverter.Models
                     {9, number => new Millions(number)},
                 };
 
+        private IDictionary<int, int> digitCountToStartIndexMap = new Dictionary<int, int>
+                                                                        {
+                                                                            {4, 2},
+                                                                            {5, 3},
+                                                                            {6, 4},
+                                                                            {7, 2},
+                                                                            {8, 3},
+                                                                            {9, 4},
+                                                                        }; 
+
         public Number(int underlyingValue)
         {
             this.UnderlyingValue = underlyingValue;
@@ -52,7 +62,7 @@ namespace NumberConverter.Models
 
         public Number LastDigitsFrom(int from)
         {
-            return new Number(int.Parse(UnderlyingValue.ToString().Substring(UnderlyingValue.ToString().Length - from)));
+            return new Number(int.Parse(UnderlyingValue.ToString().Substring(from - 1)));
         }
 
         public bool IsZero()
@@ -88,18 +98,30 @@ namespace NumberConverter.Models
 
         public bool ContainsHundreds()
         {
-            if (UnderlyingValue < 100)
-                return false;
-
-            return LastDigitsFrom(3).DigitCount >= 3;
+            return HasSubValue(100, 2);
         }
 
         public bool ContainsTens()
         {
-            if (UnderlyingValue < 10)
+            return HasSubValue(10, 3);
+        }
+
+        private bool HasSubValue(int upto, int numberOfExpectedDigits)
+        {
+            if (UnderlyingValue < upto)
                 return false;
 
-            return LastDigitsFrom(2).DigitCount >= 2;
+            return LastDigitsFrom(numberOfExpectedDigits).DigitCount >= upto.ToString().Length;
+        }
+
+        public Number ExtractThousands()
+        {
+            return LastDigitsFrom(this.digitCountToStartIndexMap[DigitCount]);
+        }
+
+        public Number ExtractHundreds()
+        {
+            return LastDigitsFrom(this.digitCountToStartIndexMap[DigitCount]);
         }
     }
 }

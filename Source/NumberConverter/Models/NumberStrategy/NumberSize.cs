@@ -4,6 +4,7 @@
     {
         Ones,
         Tens,
-        Hundreds
+        Hundreds,
+        Thousands
     }
 }
