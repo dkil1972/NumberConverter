@@ -26,7 +26,7 @@ namespace NumberConverter.Models.Printers
                        childPrinters.First().Print(value.LastDigit());
 
             return childPrinters.First().Print(value.FirstDigit()) + " hundred and " +
-                   childPrinters.Last().Print(value.LastDigitsStartingAt(2));
+                   childPrinters.Last().Print(value.LastDigitsFrom(2));
         }
 
         public void Add(IPrintNumbers childPrinter)

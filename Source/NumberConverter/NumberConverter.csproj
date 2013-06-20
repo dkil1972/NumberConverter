@@ -125,6 +125,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Number.cs" />
+    <Compile Include="Models\NumberStrategy\IProvideNumberSizeInfo.cs" />
+    <Compile Include="Models\NumberStrategy\Millions.cs" />
+    <Compile Include="Models\NumberStrategy\NumberSize.cs" />
+    <Compile Include="Models\NumberStrategy\Thousands.cs" />
     <Compile Include="Models\Printers\HundredsPrinter.cs" />
     <Compile Include="Models\Printers\IPrintNumbers.cs" />
     <Compile Include="Models\Printers\SingleDigitPrinter.cs" />

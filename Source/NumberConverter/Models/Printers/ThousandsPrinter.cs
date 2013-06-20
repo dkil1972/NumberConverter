@@ -1,36 +1,38 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using NumberConverter.Models.NumberStrategy;
 
 namespace NumberConverter.Models.Printers
 {
     public class ThousandsPrinter : IPrintNumbers
     {
-        IList<IPrintNumbers> childPrinters = new List<IPrintNumbers>();
+        IDictionary<NumberSize, IPrintNumbers> childPrinters = new Dictionary<NumberSize, IPrintNumbers>();
 
         public string Print(Number value)
         {
+            var thousandsDetail = value.GetNumberSize();
             if (value.IsExactMultipleOf(1000))
-                return childPrinters.First().Print(value.FirstDigit()) + " thousand";
+                return childPrinters[thousandsDetail.GetSize()].Print(thousandsDetail.NumberOfMultiples()) + " thousand";
 
-            if (value.Digit(2).IsZero())
-                return childPrinters.First()
-                                    .Print(value.FirstDigit()) + " thousand and " + GetHundredsTextFor(value);
-
-            return childPrinters.First().Print(value.FirstDigit()) + " thousand " + 
-                   childPrinters.Last().Print(value.LastDigitsStartingAt(3));
+            return GetTextForValueWithRemainder(value, thousandsDetail);
         }
 
-        private string GetHundredsTextFor(Number value)
+        private string GetTextForValueWithRemainder(Number value, IProvideNumberSizeInfo thousandsDetail)
         {
-            if (value.Digit(3).IsZero())
-                return childPrinters.First().Print(value.LastDigit());
+            var toReturn = childPrinters[thousandsDetail.GetSize()].Print(thousandsDetail.NumberOfMultiples()) + " thousand";
 
-            return childPrinters[1].Print(value.LastDigitsStartingAt(2));
+            if (value.ContainsHundreds())
+                toReturn += " " + childPrinters[NumberSize.Hundreds].Print(value.LastDigitsFrom(3));
+            else if (value.ContainsTens())
+                toReturn += " and " + childPrinters[NumberSize.Tens].Print(value.LastDigitsFrom(2));
+            else
+                toReturn += " and " + childPrinters[NumberSize.Ones].Print(value.LastDigit());
+
+            return toReturn;
         }
 
-        public void Add(IPrintNumbers childPrinter)
+        public void Add(NumberSize key, IPrintNumbers value)
         {
-            childPrinters.Add(childPrinter);
+            childPrinters.Add(key, value);
         }
     }
 }
