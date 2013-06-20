@@ -130,8 +130,10 @@
     <Compile Include="Models\NumberStrategy\NumberSize.cs" />
     <Compile Include="Models\NumberStrategy\Thousands.cs" />
     <Compile Include="Models\Printers\HundredsPrinter.cs" />
+    <Compile Include="Models\Printers\ICreatePrinters.cs" />
     <Compile Include="Models\Printers\IPrintNumbers.cs" />
     <Compile Include="Models\Printers\MillionsPrinter.cs" />
+    <Compile Include="Models\Printers\PrinterFactory.cs" />
     <Compile Include="Models\Printers\SingleDigitPrinter.cs" />
     <Compile Include="Models\Printers\TensPrinter.cs" />
     <Compile Include="Models\Printers\ThousandsPrinter.cs" />
@@ -223,6 +225,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\NumberConversion\Convert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

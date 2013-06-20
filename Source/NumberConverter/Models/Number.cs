@@ -39,6 +39,26 @@ namespace NumberConverter.Models
             get { return UnderlyingValue.ToString().Length; }
         }
 
+        public bool IsTens
+        {
+            get { return DigitCount == 2; }
+        }
+
+        public bool IsHundreds
+        {
+            get { return DigitCount == 3; }
+        }
+
+        public bool IsThousands
+        {
+            get { return DigitCount > 3 && DigitCount < 7; }
+        }
+
+        public bool IsMillions
+        {
+            get { return DigitCount > 6 && DigitCount < 10; }
+        }
+
         public bool IsExactMultipleOf(int multiple)
         {
             return UnderlyingValue%multiple == 0;

@@ -70,6 +70,7 @@
     <Compile Include="Unit\NumberStrategy\MillionsSpecs.cs" />
     <Compile Include="Unit\NumberSpecs.cs" />
     <Compile Include="Unit\Printers\MillionsPrinterSpecs.cs" />
+    <Compile Include="Unit\Printers\PrinterFactorySpecs.cs" />
     <Compile Include="Unit\Printers\ThousandsPrinterSpecs.cs" />
     <Compile Include="Unit\Printers\HundredsPrinterSpecs.cs" />
     <Compile Include="Unit\Printers\TensPrinterSpecs.cs" />
