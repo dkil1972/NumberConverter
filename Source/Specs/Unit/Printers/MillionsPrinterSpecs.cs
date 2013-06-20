@@ -1,9 +1,4 @@
-﻿using Machine.Specifications;
-using NumberConverter.Models;
-using NumberConverter.Models.NumberStrategy;
-using NumberConverter.Models.Printers;
-
-namespace NumberConverter.Specs.Unit.Printers
+﻿namespace NumberConverter.Specs.Unit.Printers
 {
 //    [Subject(typeof(MillionsPrinter))]
 //    public class given_exact_multiples_of_1000000_when_converting

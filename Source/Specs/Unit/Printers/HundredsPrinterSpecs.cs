@@ -4,7 +4,7 @@ using NumberConverter.Models.Printers;
 
 namespace NumberConverter.Specs.Unit.Printers
 {
-    [Subject(typeof(SingleDigitPrinter))]
+    [Subject(typeof(HundredsPrinter))]
     public class given_numbers_ending_in_zeros_when_converting
     {
         Establish context = () =>
@@ -22,7 +22,7 @@ namespace NumberConverter.Specs.Unit.Printers
         private static HundredsPrinter printer;
     }
 
-    [Subject(typeof(SingleDigitPrinter))]
+    [Subject(typeof(HundredsPrinter))]
     public class given_numbers_that_are_multiples_of_100_with_remainders_when_converting
     {
         Establish context = () =>

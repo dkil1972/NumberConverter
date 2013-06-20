@@ -5,7 +5,7 @@ using NumberConverter.Models.Printers;
 
 namespace NumberConverter.Specs.Unit.Printers
 {
-    [Subject(typeof(SingleDigitPrinter))]
+    [Subject(typeof(ThousandsPrinter))]
     public class given_exact_multiples_of_1000_when_converting
     {
         Establish context = () =>
@@ -24,7 +24,7 @@ namespace NumberConverter.Specs.Unit.Printers
         private static ThousandsPrinter printer;
     }
 
-    [Subject(typeof(SingleDigitPrinter))]
+    [Subject(typeof(ThousandsPrinter))]
     public class given_exact_multiples_of_1000_with_remainders_when_converting
     {
         Establish context = () =>

@@ -4,7 +4,7 @@ using NumberConverter.Models.Printers;
 
 namespace NumberConverter.Specs.Unit.Printers
 {
-    [Subject(typeof(SingleDigitPrinter))]
+    [Subject(typeof(TensPrinter))]
     public class given_a_number_less_than_twenty_when_converting
     {
         Establish context = () => { printer = new TensPrinter(); }; 
@@ -17,7 +17,7 @@ namespace NumberConverter.Specs.Unit.Printers
         private static IPrintNumbers printer;
     }
 
-    [Subject(typeof(SingleDigitPrinter))]
+    [Subject(typeof(TensPrinter))]
     public class given_the_number_22_when_converting
     {
         Establish context = () =>
