@@ -20,7 +20,7 @@ namespace NumberConverter.Controllers
         public ActionResult Convert(int value)
         {
             var numberToConvert = new Number(value);
-            ViewData["ConvertedValue"] = printerFactory.CreateFrom(numberToConvert).Print(new Number(value));
+            ViewData["ConvertedValue"] = printerFactory.CreateFrom(numberToConvert).Print(numberToConvert);
             return View();
         }
     }
